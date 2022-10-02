@@ -21,6 +21,7 @@ public static class SeedData
                         Validator = new Validator
                         {
                             Required = true,
+                            AlgorithmCheck = (int)AlgoValidationNames.Luhn
                         }
                     },
                     new Field

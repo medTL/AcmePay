@@ -10,4 +10,6 @@ public class Validator
     public int? MinLength { get; set; }
 
     public string? Pattern { get; set; }
+
+    public int AlgorithmCheck { get; set; }
 }

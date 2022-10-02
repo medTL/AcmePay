@@ -73,6 +73,9 @@ public class PaymentRender : IPaymentRender
             Required = validator.Required,
             MaxLength = validator.MaxLength,
             MinLength = validator.MinLength,
+            Pattern = validator.Pattern,
+            AlgorithmCheck = (AlgoValidationNames)validator.AlgorithmCheck
+            
         };
     }
 }

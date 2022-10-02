@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AlgoValidationNames } from 'src/app/models/Enums/AlgoValidationNames';
 import { PaymentMethodNames } from 'src/app/models/Enums/PaymentMethodNames';
 import { SepaPaymentModel } from 'src/app/models/payments/Requests/SepaPaymentModel';
 import { VisaPaymentModel } from 'src/app/models/payments/Requests/VisaPaymentModel';
 import { FieldModel } from 'src/app/models/payments/Response/FieldModel';
+import { LuhnValidator } from 'src/app/models/validators/LuhnValdiator';
 
 
 
@@ -19,6 +21,7 @@ export class PaymentFormComponent implements OnInit {
   @Output() visaValues = new EventEmitter<VisaPaymentModel>();
   @Output() sepaValues = new EventEmitter<SepaPaymentModel>();
   form?: FormGroup;
+
   constructor(private fb:FormBuilder) {
     this.form = new FormGroup(
       {
@@ -57,6 +60,16 @@ export class PaymentFormComponent implements OnInit {
             Validators.maxLength(item.validator.maxLength)
           );
         }
+        if(item.validator.algorithmCheck)
+        {
+          if(item.validator.algorithmCheck === AlgoValidationNames.LUHN)
+          {
+            console.log(item.name)
+            validationsArray.push(
+              LuhnValidator
+            );
+          }
+        }
       const control = this.fb.group({[item.name] : new FormControl("", Validators.compose(validationsArray))});
       this.fieldControls.push(control);
     });
@@ -67,7 +80,6 @@ export class PaymentFormComponent implements OnInit {
     if(!this.form?.valid)
     {
       console.log("form invalid");
-      console.log(this.form);
       this.form?.markAllAsTouched();
       return;
     }
@@ -91,8 +103,6 @@ export class PaymentFormComponent implements OnInit {
         bic: this.fieldControls.value[1].BIC,
         holderName: this.fieldControls.value[2].HolderName
       }
-      console.log(this.fieldControls.value);
-      console.log(sepaModel);
       this.sepaValues.emit(sepaModel);
       return;
     }
