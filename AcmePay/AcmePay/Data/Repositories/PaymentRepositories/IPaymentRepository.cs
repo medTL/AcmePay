@@ -1,5 +1,6 @@
 using AcmePay.Data.Entity;
 using AcmePay.Models.Payments;
+using AcmePay.Models.Payments.Request;
 
 namespace AcmePay.Data.Repositories.PaymentRepositories;
 

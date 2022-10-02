@@ -1,6 +1,7 @@
 using AcmePay.Data.Entity;
 using AcmePay.Models.Enums;
 using AcmePay.Models.Payments;
+using AcmePay.Models.Payments.Request;
 using Microsoft.EntityFrameworkCore;
 
 namespace AcmePay.Data.Repositories.PaymentRepositories;

@@ -6,6 +6,8 @@ using AcmePay.Models.Api;
 using AcmePay.Models.Api.generic;
 using AcmePay.Models.Enums;
 using AcmePay.Models.Payments;
+using AcmePay.Models.Payments.Request;
+using AcmePay.Models.Payments.Response;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -51,8 +53,6 @@ public class PaymentsController : Controller
             });
         }
 
-        var methods = await _paymentMethod.ListAsync(cancellationToken);
-
         return Ok(new ApiResponse<Guid>
         {
             Data = (await _payment.CreatePaymentAsync(model, cancellationToken)).Id,
@@ -70,7 +70,7 @@ public class PaymentsController : Controller
     [HttpGet]
     [ProducesResponseType(typeof(ApiResponse<PaymentDetailsModel>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> PaymentDetail(
+    public async Task<IActionResult> PaymentDetails(
         [FromQuery(Name = "id"), BindRequired] Guid id,
         CancellationToken cancellationToken = default)
     {
@@ -137,8 +137,16 @@ public class PaymentsController : Controller
             Message = MessageEnum.Ok
         });
     }
-
+    
+    /// <summary>
+    /// Submit payment
+    /// </summary>
+    /// <param name="model"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpPost]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Payment(
         [FromBody] PaymentSubmitModel model, CancellationToken cancellationToken)
     {

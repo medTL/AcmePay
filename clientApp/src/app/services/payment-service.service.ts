@@ -40,7 +40,7 @@ export class PaymentService {
     */
    PaymentDetails(id: string): Observable<ServerResponse<PaymentDetailsResponseModel>> {
       return this.http.get<ServerResponse<PaymentDetailsResponseModel>>
-      (`${ApiConstants.PaymentDetail}?id=${id}`);
+      (`${ApiConstants.PaymentDetails}?id=${id}`);
    }
 
    /**

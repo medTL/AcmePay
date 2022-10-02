@@ -1,7 +1,6 @@
-using AcmePay.Data.Entity;
 using Newtonsoft.Json;
 
-namespace AcmePay.Models.Payments;
+namespace AcmePay.Models.Payments.Response;
 
 public class PaymentDetailsModel
 {

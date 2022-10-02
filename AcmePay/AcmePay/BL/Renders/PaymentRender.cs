@@ -1,6 +1,7 @@
 using AcmePay.Data.Entity;
 using AcmePay.Models.Enums;
 using AcmePay.Models.Payments;
+using AcmePay.Models.Payments.Response;
 
 namespace AcmePay.BL.Renders;
 

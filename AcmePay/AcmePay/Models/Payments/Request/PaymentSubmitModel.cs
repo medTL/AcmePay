@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace AcmePay.Models.Payments;
+namespace AcmePay.Models.Payments.Request;
 
 public class PaymentSubmitModel
 {

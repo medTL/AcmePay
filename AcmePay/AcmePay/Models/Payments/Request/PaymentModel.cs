@@ -1,9 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-using AcmePay.Models.Enums;
 using Newtonsoft.Json;
 
-namespace AcmePay.Models.Payments;
+namespace AcmePay.Models.Payments.Request;
 
 public class PaymentModel
 {

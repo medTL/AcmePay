@@ -1,4 +1,4 @@
-namespace AcmePay.Models.Payments;
+namespace AcmePay.Models.Payments.Response;
 
 public class PaymentMethodModel
 {

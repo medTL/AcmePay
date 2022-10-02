@@ -2,12 +2,13 @@ using System.ComponentModel.DataAnnotations;
 using AcmePay.Models.Validator;
 using Newtonsoft.Json;
 
-namespace AcmePay.Models.Payments;
+namespace AcmePay.Models.Payments.Request;
 
 public class VisaPaymentModel
 {
     [JsonProperty("cardNumber")]
     [Required]
+    [LuhnValidator]
     public string CardNumber { get; set; }
     
     [Required]
@@ -17,7 +18,6 @@ public class VisaPaymentModel
 
     [JsonProperty("cvc")]
     [Required]
-  
     public int Cvc { get; set; }
 
     [JsonProperty("cardHolder")]

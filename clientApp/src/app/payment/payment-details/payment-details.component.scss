@@ -64,4 +64,11 @@ label {
   color: #000;
 }
 
+@media only screen and (max-width: 1024px)
+{
+  .payment-method-container {
+    width: 100%;
+  }
+}
+
 
