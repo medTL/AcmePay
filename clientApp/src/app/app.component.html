@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div *ngIf="!loading">
+    <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="loading">
+    <div class="loading-message">
+        <h4>ACME PAY</h4>
+    </div>
+  </div>
+</div>
+
+

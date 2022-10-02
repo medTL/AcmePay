@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --background: #f3f5ff;
+  --primary: #00fc98;
+  --action: #a004c2;
+  --text: #7a7a7a;
+}
+@import "~bootstrap/scss/bootstrap";
+
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--background);
+  overflow-y: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn {
+  border: 1px solid #ffffff;
+  padding: 1em;
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  background-color: var(--action);
+  width: 80%;
+  margin: auto;
+}
+
+.errors {
+  font-size: 0.9em;
+  color: red;
+  font-family: 'Poppins', sans-serif;
+}

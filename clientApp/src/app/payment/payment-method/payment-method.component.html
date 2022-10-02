@@ -1,0 +1,16 @@
+
+<div class="wrapper">
+  <div class="payment-header">
+    <h2>Payment Method: {{title}}</h2>
+  </div>
+  <div class="helper-text">
+    <label>Please fill the form with your details:</label>
+  </div>
+  <div *ngIf="!loading" class="form-container">
+    <app-payment-form [type]="title" (visaValues)="getVisaFormData($event)" (sepaValues)="getSepaFormData($event)" [fields]="paymentMethod?.fields ?? []">
+    </app-payment-form>
+  </div>
+</div>
+
+
+

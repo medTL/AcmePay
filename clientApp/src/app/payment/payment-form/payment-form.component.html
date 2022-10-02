@@ -1,0 +1,19 @@
+<div class="form-container" *ngIf="form && fields">
+  <form [formGroup]="form" (ngSubmit)="Submit()">
+    <ng-container  formArrayName="fields">
+    <ng-container *ngFor="let controls of fields; let i = index" [formGroupName]="i">
+      <div class="form-group">
+        <label class="form-label">{{controls.label}}</label>
+        <input [type]="controls.type" class="form-control" [placeholder]="controls.placeHolder" [formControlName]="controls.name"  />
+
+        <ng-container *ngIf="fieldControls.controls[i].get(controls.name)?.errors && fieldControls.controls[i].get(controls.name)?.touched ">
+              <span class="errors">{{controls.label}} is invalid </span>
+        </ng-container>
+      </div>
+      </ng-container>
+      </ng-container>
+      <div class="form-footer">
+        <button class="submit-btn">Pay</button>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+
+<div class="wrapper">
+  <div class="payment-header">
+    <h2>CHECKOUT</h2>
+  </div>
+  <div class="payment-total">
+    <span>Total: {{paymentDetails?.amount}} {{paymentDetails?.currency}} </span>
+  </div>
+  <div>
+    <label>Please select a payment method:</label>
+    <div class="payment-method-container">
+      <div (click)="selectPaymentMethod(method.name)" class="payment-method-item" *ngFor="let method of paymentDetails?.paymentMethods">
+        <span>{{method.name}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+

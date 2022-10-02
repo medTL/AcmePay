@@ -1,0 +1,29 @@
+:host {
+  padding: 2em;
+ display: grid;
+ place-items: center;
+ .wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+}
+
+.helper-text {
+  margin-top: 2em;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+}
+
+.payment-header {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  padding: 1em 0;
+  h2 {
+    font-size: 1.5em;
+    font-weight: 900;
+    margin: 0;
+    color: var(--primary);
+  }
+}
+
+
