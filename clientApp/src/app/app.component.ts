@@ -28,8 +28,11 @@ export class AppComponent  implements OnInit, OnDestroy {
     this.createpaymentSubscription = this.paymentService.CreatePayment(model).subscribe(
       data => {
           if(data){
-            this.loading = false;
-            this.router.navigate(["payments/details", data.data]);
+            setTimeout(() => {
+              this.loading = false;
+              this.router.navigate(["payments/details", data.data]);
+            },1000)
+
           }
       }, error => {
           this.loading= false;

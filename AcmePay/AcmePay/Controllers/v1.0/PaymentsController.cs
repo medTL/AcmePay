@@ -5,7 +5,6 @@ using AcmePay.Data.Repositories.PaymentRepositories;
 using AcmePay.Models.Api;
 using AcmePay.Models.Api.generic;
 using AcmePay.Models.Enums;
-using AcmePay.Models.Payments;
 using AcmePay.Models.Payments.Request;
 using AcmePay.Models.Payments.Response;
 using Microsoft.AspNetCore.Cors;
