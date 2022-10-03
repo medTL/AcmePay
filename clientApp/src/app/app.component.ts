@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { throws } from 'assert';
 import { Subscription } from 'rxjs';
 import { CreatePaymentModel } from './models/payments/Requests/CreatePaymentModel';
 import { PaymentService } from './services/payment-service.service';
